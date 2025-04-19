@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDM Prediction - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .background-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px;
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #f39c12;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            background-color: #f39c12;
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #e67e22;
+        }
+
+        .hero {
+            margin-top: 100px;
+        }
+
+        .navbar {
+            background-color: #f39c12;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            border-bottom: 2px solid white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">GDM Prediction</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/predictdata">Prediction</a></li>
+                <li><a href="/about_gdm">About GDM</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/contact_us">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Background Image -->
+    <img src="Images/home-bg.jpg" alt="Background" class="background-img">
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Gestational Diabetes Mellitus (GDM) Prediction</h1>
+            <p>Early detection is key to better outcomes. Learn more about GDM, and try our prediction tool to assess your
+                risk.</p>
+            <a href="/predictdata" class="btn">Try the Prediction Tool</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

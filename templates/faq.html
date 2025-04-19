@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url("../Images/faq-bg.jpg") no-repeat center center fixed;
+            background-size: cover;
+            color: #f39c12;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .background-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 50px;
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f39c12;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .faq-item h2 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #f39c12;
+        }
+
+        .faq-item p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: #f39c12;
+            padding: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            border-bottom: 2px solid white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">GDM Prediction</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/predictdata">Prediction</a></li>
+                <li><a href="/about_gdm">About GDM</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/contact_us">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- FAQ Section -->
+    <div class="container">
+        <h1>Frequently Asked Questions (FAQ)</h1>
+        <div class="faq-item">
+            <h2>What is Gestational Diabetes Mellitus (GDM)?</h2>
+            <p>Gestational Diabetes Mellitus (GDM) is a type of diabetes that occurs during pregnancy and affects how your cells use sugar (glucose).</p>
+        </div>
+        <div class="faq-item">
+            <h2>How can I manage GDM?</h2>
+            <p>Managing GDM typically involves lifestyle changes, monitoring blood sugar levels, and possibly insulin therapy as prescribed by your doctor.</p>
+        </div>
+        <div class="faq-item">
+            <h2>What are the risks associated with GDM?</h2>
+            <p>Risks include high blood pressure, having a larger baby, and an increased risk of type 2 diabetes later in life. Proper management can help mitigate these risks.</p>
+        </div>
+        <div class="faq-item">
+            <h2>Can GDM be prevented?</h2>
+            <p>While GDM cannot always be prevented, maintaining a healthy weight, eating a balanced diet, and staying active during pregnancy can reduce your risk.</p>
+        </div>
+    </div>
+</body>
+
+</html>

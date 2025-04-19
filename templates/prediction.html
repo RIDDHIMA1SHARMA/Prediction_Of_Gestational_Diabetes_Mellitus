@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GDM Prediction</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), purple no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .navbar {
+            background-color: #f39c12;
+            padding: 1rem;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            border-bottom: 2px solid white;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+            max-width: 500px;
+            width: 100%;
+            margin-top: 80px; /* Space for navbar */
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #f39c12;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.5rem;
+            color: #f39c12;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-size: 1.1rem;
+            color: #ecf0f1;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .form-control {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+            color: #333;
+        }
+
+        .form-control[type="number"],
+        select {
+            background-color: #fff;
+        }
+
+        .btn-primary {
+            padding: 12px;
+            border: none;
+            background-color: #3498db;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+
+        .result {
+            text-align: center;
+            font-size: 1.3rem;
+            margin-top: 25px;
+            color: #f39c12;
+        }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 30px;
+            }
+
+            .btn-primary {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">GDM Prediction</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/predictdata">Prediction</a></li>
+                <li><a href="/about_gdm">About GDM</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/contact_us">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>GDM Prediction</h1>
+        <form action="{{ url_for('predict_datapoint') }}" method="POST">
+            <div class="form-group">
+                <label class="form-label" for="BMI">BMI</label>
+                <input class="form-control" id="BMI" type="number" name="BMI" placeholder="Enter BMI" min="0" max="1000" required />
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="Dia_BP">Diastolic Blood Pressure (Dia BP)</label>
+                <input class="form-control" id="Dia_BP" type="number" name="Dia_BP" placeholder="Enter Dia BP" min="0" max="1000" required />
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="OGTT">Oral Glucose Tolerance Test (OGTT)</label>
+                <input class="form-control" id="OGTT" type="number" name="OGTT" placeholder="Enter OGTT" min="0" max="1000" required />
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="PCOS">Polycystic Ovary Syndrome (PCOS)</label>
+                <select class="form-control" id="PCOS" name="PCOS" required>
+                    <option value="" disabled selected>Select Option</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="Prediabetes">Prediabetes</label>
+                <select class="form-control" id="Prediabetes" name="Prediabetes" required>
+                    <option value="" disabled selected>Select Option</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button class="btn-primary" type="submit">Predict</button>
+            </div>
+        </form>
+        <div class="result">
+            <h2>GDM Present? - {{ results }}</h2>
+        </div>
+    </div>
+</body>
+
+</html>
